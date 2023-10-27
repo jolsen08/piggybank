@@ -27,14 +27,21 @@ st.write(f"Financial Goal: \${row['goal']}")
 st.write(' ')
 st.write(' ')
 
+if row['gender'].lower() == 'male':
+    clause = 'his'
+elif row['gender'].lower() == 'female':
+    clause = 'her'
+
+
 
 progress_percent = (row['current_balance'] / row['goal'])
 if progress_percent == 1:
     st.balloons()
-    statement = f"{row['first_name']} has achieved her goal!"
+
+    statement = f"{row['first_name']} has achieved {clause} goal!"
 elif progress_percent > 1:
     st.balloons()
-    statement = f"{row['first_name']} has exceeded her goal!"
+    statement = f"{row['first_name']} has exceeded {clause} goal!"
 else:
     statement = ''
     st.progress(progress_percent, text=str(round((progress_percent * 100))) + '%')
