@@ -28,7 +28,7 @@ with col2:
             if submit and first_name is not None and last_name is not None and first_name != '' and last_name != '':
                 new_row = {'first_name': first_name, 'last_name': last_name, 'gender': gender, 'birth_date': birth_date, 'monthly_allowance': monthly_allowance, 'current_balance': 0, 'goal': goal}
                 df = df.append(new_row, ignore_index=True)
-                df.to_csv('piggy_bank_table.csv')
+                df.to_csv('piggy_bank_table.csv', index=False)
 
 df['birth_date'] = df['birth_date'].astype(str)
 with col1:
