@@ -1,5 +1,5 @@
-first_name,last_name,birth_date,gender,monthly_allowance,goal,current_balance
-Jim,Bob,2021-02-02,Male,7.0,53.0,47.75
-Sally,Jo,2020-10-20,Female,8.0,35.0,6.0
-Nancy,Smith,2020-09-13,Female,5.0,13.0,21.25
-Fred,Jackson,2009-03-13,Male,50.0,1000.0,50.0
+first_name,last_name,birth_date,gender,monthly_allowance,goal,current_balance,savings,tithing,other_witholdings
+Jim,Bob,2021-02-02,Male,10.0,53.0,28.23400000000001,0.14,0.1,0.08
+Sally,Jo,2020-10-20,Female,8.0,35.0,3.4560000000000013,0.14,0.1,0.08
+Nancy,Smith,2020-09-13,Female,5.0,13.0,12.240000000000002,0.14,0.1,0.08
+Fred,Jackson,2009-03-13,Male,50.0,1000.0,28.8,0.14,0.1,0.08

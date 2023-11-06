@@ -21,8 +21,13 @@ row = df.iloc[0]
 st.subheader(row['first_name'])
 monthly_allowance = "{:.2f}".format(row['monthly_allowance'])
 weekly_allowance = "{:.2f}".format(row['monthly_allowance']/4)
+
+subtraction_sum = row['savings'] + row['tithing'] + row['other_witholdings']
+
+net_balance = round((row['current_balance'] * (1-subtraction_sum)),2)
+
 st.write(f"Allowance: \${monthly_allowance} per month (about \${weekly_allowance} per week)")
-st.write(f"Current Balance: \${row['current_balance']}")
+st.write(f"Current Net Balance: \${net_balance}")
 st.write(f"Financial Goal: \${row['goal']}")
 st.write(' ')
 st.write(' ')
@@ -34,7 +39,7 @@ elif row['gender'].lower() == 'female':
 
 
 
-progress_percent = (row['current_balance'] / row['goal'])
+progress_percent = (net_balance / row['goal'])
 if progress_percent == 1:
     st.balloons()
 

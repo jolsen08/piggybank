@@ -42,16 +42,22 @@ with col1:
         col1, col2, col3 = st.columns(3)
         with col1:
             current_date = datetime.now()
+
+            subtraction_sum = row['savings'] + row['other_witholdings'] + row['tithing'] 
+            net_balance = round((row['current_balance'] * (1-subtraction_sum)),2)
             birth_date = datetime.strptime(row['birth_date'], '%Y-%m-%d')
             monthly_allowance = "{:.2f}".format(row['monthly_allowance'])
             weekly_allowance = "{:.2f}".format(row['monthly_allowance'] / 4)
             age = current_date.year - birth_date.year - ((current_date.month, current_date.day) < (
             birth_date.month, birth_date.day))
-            st.write(f"Name: {row['first_name']}")
+            st.title(row['first_name'])
             st.write(f"Age: {age}")
             st.write(f"Allowance: \${monthly_allowance} per month (about \${weekly_allowance} per week)")
-            st.write(f"Current Balance: \${row['current_balance']}")
-            st.write(f"Financial Goal: \${row['goal']}")
+            st.subheader(f"Net Balance: \${net_balance}")
+            st.write(f"Total Savings: \${round((row['current_balance'] * row['savings']),2)}")
+            st.write(f"Total Tithing Contribution: \${round((row['current_balance'] * row['tithing']),2)}")
+            st.write(f"Other Witholdings: \${round((row['current_balance'] * row['other_witholdings']),2)}")
+            st.subheader(f"Goal: \${row['goal']}")
 
             if st.button(f"Edit {row['first_name']}", key=f"{index} - edit"):
                 st.session_state.editing_child = index
